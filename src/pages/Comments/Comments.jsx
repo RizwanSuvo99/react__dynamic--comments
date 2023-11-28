@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import SingleComment from "../../component/SingleComment/SingleComment";
 import "./Comments.css";
-import { localStorageData } from "../../utils/localStorageData";
+import { sessionStorageData } from "../../utils/sessionStorageData";
 
 export default function Comments() {
-  const [inputs, setInputs] = useState(localStorageData());
+  const [inputs, setInputs] = useState(sessionStorageData());
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export default function Comments() {
 
   //data set in local storage
   useEffect(() => {
-    localStorage.setItem("inputs", JSON.stringify(inputs));
+    sessionStorage.setItem("inputs", JSON.stringify(inputs));
   }, [inputs]);
 
   return (
